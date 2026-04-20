@@ -1,0 +1,6 @@
+ id |                                  payload                                  
+----+---------------------------------------------------------------------------
+  1 | {"userId":"test-user-3","hotelId":"test-hotel-1","promoCode":""}
+  2 | {"userId":"test-user-2","hotelId":"test-hotel-1","promoCode":"TESTCODE1"}
+(2 rows)
+

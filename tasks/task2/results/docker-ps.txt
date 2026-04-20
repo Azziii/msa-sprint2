@@ -1,0 +1,9 @@
+ONTAINER ID  IMAGE                                           COMMAND               CREATED        STATUS         PORTS                                       NAMES
+24e1ff58bae6  localhost/task2_monolith:latest                                       3 minutes ago  Up 3 minutes  0.0.0.0:8084->8080/tcp                      hotelio-monolith
+fe41ce91c5b6  docker.io/library/postgres:15                   postgres              3 minutes ago  Up 3 minutes  0.0.0.0:5432->5432/tcp                      hotelio-db
+884b57dddb87  docker.io/confluentinc/cp-kafka:7.2.1           /etc/confluent/do...  3 minutes ago  Up 3 minutes  0.0.0.0:9092->9092/tcp                      kafka
+fec552a55b49  docker.io/confluentinc/cp-zookeeper:7.2.1       /etc/confluent/do...  3 minutes ago  Up 3 minutes  0.0.0.0:2181->2181/tcp, 2888/tcp, 3888/tcp  zookeeper
+0a56f371057f  docker.io/library/postgres:15                   postgres              3 minutes ago  Up 3 minutes  5432/tcp                                    booking-db
+d6f636f8ef23  docker.io/library/postgres:15                   postgres              3 minutes ago  Up 3 minutes  5432/tcp                                    booking-history-db
+b922e4feeca9  localhost/task2_booking-service:latest          java -jar app.jar     3 minutes ago  Up 3 minutes  0.0.0.0:9090->9090/tcp                      booking-service
+1bcddda20114  localhost/task2_booking-history-service:latest  java -jar app.jar     3 minutes ago  Up 3 minutes                                              booking-history-service

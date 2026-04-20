@@ -1,0 +1,146 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-04-18T21:39:47.846Z  INFO 1 --- [           main] com.hotelio.history.HistoryApplication   : Starting HistoryApplication v0.0.1 using Java 17-ea with PID 1 (/app/app.jar started by root in /app)
+2026-04-18T21:39:47.893Z  INFO 1 --- [           main] com.hotelio.history.HistoryApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-04-18T21:39:49.147Z  INFO 1 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-18T21:39:49.217Z  INFO 1 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 1 JPA repository interface.
+2026-04-18T21:39:50.257Z  INFO 1 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-18T21:39:50.346Z  INFO 1 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-04-18T21:39:50.416Z  INFO 1 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-18T21:39:51.061Z  INFO 1 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-18T21:39:51.137Z  INFO 1 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-18T21:39:51.599Z  INFO 1 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@634ff56
+2026-04-18T21:39:51.611Z  INFO 1 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-18T21:39:53.740Z  INFO 1 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table booking_history (id bigint not null, payload varchar(255), primary key (id))
+Hibernate: create sequence booking_history_seq start with 1 increment by 50
+2026-04-18T21:39:53.824Z  INFO 1 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-18T21:39:54.412Z  INFO 1 --- [       Thread-1] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [kafka:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-history-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = history
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2026-04-18T21:39:54.826Z  INFO 1 --- [       Thread-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.0
+2026-04-18T21:39:54.827Z  INFO 1 --- [       Thread-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 60e845626d8a465a
+2026-04-18T21:39:54.827Z  INFO 1 --- [       Thread-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1776548394825
+2026-04-18T21:39:54.833Z  INFO 1 --- [       Thread-1] o.a.k.clients.consumer.KafkaConsumer     : [Consumer clientId=consumer-history-1, groupId=history] Subscribed to topic(s): booking.created
+2026-04-18T21:39:54.845Z  INFO 1 --- [           main] com.hotelio.history.HistoryApplication   : Started HistoryApplication in 8.412 seconds (process running for 9.822)
+2026-04-18T21:39:55.114Z  WARN 1 --- [       Thread-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-history-1, groupId=history] Error while fetching metadata with correlation id 2 : {booking.created=LEADER_NOT_AVAILABLE}
+2026-04-18T21:39:55.122Z  INFO 1 --- [       Thread-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-history-1, groupId=history] Cluster ID: 4QTzqckGTomVyJzIGMPKiA
+2026-04-18T21:39:55.267Z  WARN 1 --- [       Thread-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-history-1, groupId=history] Error while fetching metadata with correlation id 4 : {booking.created=LEADER_NOT_AVAILABLE}
+2026-04-18T21:39:55.402Z  WARN 1 --- [       Thread-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-history-1, groupId=history] Error while fetching metadata with correlation id 6 : {booking.created=LEADER_NOT_AVAILABLE}
+2026-04-18T21:39:56.662Z  INFO 1 --- [       Thread-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-history-1, groupId=history] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+2026-04-18T21:39:56.667Z  INFO 1 --- [       Thread-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-history-1, groupId=history] (Re-)joining group
+2026-04-18T21:39:56.682Z  INFO 1 --- [       Thread-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-history-1, groupId=history] Request joining group due to: need to re-join with the given member-id: consumer-history-1-b2e68408-c59c-4db4-a897-1c250c45d2fc
+2026-04-18T21:39:56.682Z  INFO 1 --- [       Thread-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-history-1, groupId=history] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2026-04-18T21:39:56.683Z  INFO 1 --- [       Thread-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-history-1, groupId=history] (Re-)joining group
+2026-04-18T21:39:59.697Z  INFO 1 --- [       Thread-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-history-1, groupId=history] Successfully joined group with generation Generation{generationId=1, memberId='consumer-history-1-b2e68408-c59c-4db4-a897-1c250c45d2fc', protocol='range'}
+2026-04-18T21:39:59.701Z  INFO 1 --- [       Thread-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-history-1, groupId=history] Finished assignment for group at generation 1: {consumer-history-1-b2e68408-c59c-4db4-a897-1c250c45d2fc=Assignment(partitions=[booking.created-0])}
+2026-04-18T21:39:59.744Z  INFO 1 --- [       Thread-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-history-1, groupId=history] Successfully synced group in generation Generation{generationId=1, memberId='consumer-history-1-b2e68408-c59c-4db4-a897-1c250c45d2fc', protocol='range'}
+2026-04-18T21:39:59.745Z  INFO 1 --- [       Thread-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-history-1, groupId=history] Notifying assignor about the new Assignment(partitions=[booking.created-0])
+2026-04-18T21:39:59.746Z  INFO 1 --- [       Thread-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-history-1, groupId=history] Adding newly assigned partitions: booking.created-0
+2026-04-18T21:39:59.759Z  INFO 1 --- [       Thread-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-history-1, groupId=history] Found no committed offset for partition booking.created-0
+2026-04-18T21:39:59.771Z  INFO 1 --- [       Thread-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-history-1, groupId=history] Resetting offset for partition booking.created-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+Hibernate: select nextval('booking_history_seq')
+Hibernate: insert into booking_history (payload,id) values (?,?)
+SAVED EVENT: {"userId":"test-user-3","hotelId":"test-hotel-1","promoCode":""}
+Hibernate: select nextval('booking_history_seq')
+Hibernate: insert into booking_history (payload,id) values (?,?)
+SAVED EVENT: {"userId":"test-user-2","hotelId":"test-hotel-1","promoCode":"TESTCODE1"}
+2026-04-18T21:48:55.183Z  INFO 1 --- [       Thread-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-history-1, groupId=history] Node -1 disconnected.

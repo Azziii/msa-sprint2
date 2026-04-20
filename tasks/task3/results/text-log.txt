@@ -1,0 +1,129 @@
+podman logs booking-subgraph
+Enabling inline tracing for this subgraph. To disable, use ApolloServerPluginInlineTraceDisabled.
+✅ Booking subgraph ready at http://localhost:4001/
+HEADERS: {
+  'content-type': 'application/json',
+  userid: 'user1',
+  accept: '*/*',
+  'content-length': '97',
+  'user-agent': 'minipass-fetch/3.0.5 (+https://github.com/isaacs/minipass-fetch)',
+  'accept-encoding': 'gzip,deflate',
+  host: 'booking-subgraph:4001',
+  connection: 'keep-alive'
+}
+HEADERS: {
+  'content-type': 'application/json',
+  userid: 'user1',
+  accept: '*/*',
+  'content-length': '97',
+  'user-agent': 'minipass-fetch/3.0.5 (+https://github.com/isaacs/minipass-fetch)',
+  'accept-encoding': 'gzip,deflate',
+  host: 'booking-subgraph:4001',
+  connection: 'keep-alive'
+}
+HEADERS: {
+  'content-type': 'application/json',
+  userid: 'user1',
+  accept: '*/*',
+  'content-length': '97',
+  'user-agent': 'minipass-fetch/3.0.5 (+https://github.com/isaacs/minipass-fetch)',
+  'accept-encoding': 'gzip,deflate',
+  host: 'booking-subgraph:4001',
+  connection: 'keep-alive'
+}
+HEADERS: {
+  'content-type': 'application/json',
+  accept: '*/*',
+  'content-length': '97',
+  'user-agent': 'minipass-fetch/3.0.5 (+https://github.com/isaacs/minipass-fetch)',
+  'accept-encoding': 'gzip,deflate',
+  host: 'booking-subgraph:4001',
+  connection: 'keep-alive'
+}
+HEADERS: {
+  'content-type': 'application/json',
+  accept: '*/*',
+  'content-length': '97',
+  'user-agent': 'minipass-fetch/3.0.5 (+https://github.com/isaacs/minipass-fetch)',
+  'accept-encoding': 'gzip,deflate',
+  host: 'booking-subgraph:4001',
+  connection: 'keep-alive'
+}
+HEADERS: {
+  'content-type': 'application/json',
+  accept: '*/*',
+  'content-length': '97',
+  'user-agent': 'minipass-fetch/3.0.5 (+https://github.com/isaacs/minipass-fetch)',
+  'accept-encoding': 'gzip,deflate',
+  host: 'booking-subgraph:4001',
+  connection: 'keep-alive'
+}
+HEADERS: {
+  'content-type': 'application/json',
+  accept: '*/*',
+  'content-length': '97',
+  'user-agent': 'minipass-fetch/3.0.5 (+https://github.com/isaacs/minipass-fetch)',
+  'accept-encoding': 'gzip,deflate',
+  host: 'booking-subgraph:4001',
+  connection: 'keep-alive'
+}
+HEADERS: {
+  'content-type': 'application/json',
+  userid: 'user1',
+  accept: '*/*',
+  'content-length': '97',
+  'user-agent': 'minipass-fetch/3.0.5 (+https://github.com/isaacs/minipass-fetch)',
+  'accept-encoding': 'gzip,deflate',
+  host: 'booking-subgraph:4001',
+  connection: 'keep-alive'
+}
+HEADERS: {
+  'content-type': 'application/json',
+  userid: 'user1',
+  accept: '*/*',
+  'content-length': '97',
+  'user-agent': 'minipass-fetch/3.0.5 (+https://github.com/isaacs/minipass-fetch)',
+  'accept-encoding': 'gzip,deflate',
+  host: 'booking-subgraph:4001',
+  connection: 'keep-alive'
+}
+HEADERS: {
+  'content-type': 'application/json',
+  userid: 'user1',
+  accept: '*/*',
+  'content-length': '97',
+  'user-agent': 'minipass-fetch/3.0.5 (+https://github.com/isaacs/minipass-fetch)',
+  'accept-encoding': 'gzip,deflate',
+  host: 'booking-subgraph:4001',
+  connection: 'keep-alive'
+}
+HEADERS: {
+  'content-type': 'application/json',
+  userid: 'user1',
+  accept: '*/*',
+  'content-length': '97',
+  'user-agent': 'minipass-fetch/3.0.5 (+https://github.com/isaacs/minipass-fetch)',
+  'accept-encoding': 'gzip,deflate',
+  host: 'booking-subgraph:4001',
+  connection: 'keep-alive'
+}
+HEADERS: {
+  'content-type': 'application/json',
+  userid: 'user1',
+  accept: '*/*',
+  'content-length': '97',
+  'user-agent': 'minipass-fetch/3.0.5 (+https://github.com/isaacs/minipass-fetch)',
+  'accept-encoding': 'gzip,deflate',
+  host: 'booking-subgraph:4001',
+  connection: 'keep-alive'
+}
+HEADERS: {
+  'content-type': 'application/json',
+  userid: 'user2',
+  accept: '*/*',
+  'content-length': '97',
+  'user-agent': 'minipass-fetch/3.0.5 (+https://github.com/isaacs/minipass-fetch)',
+  'accept-encoding': 'gzip,deflate',
+  host: 'booking-subgraph:4001',
+  connection: 'keep-alive'
+}
