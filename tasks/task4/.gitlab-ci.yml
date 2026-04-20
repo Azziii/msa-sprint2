@@ -2,22 +2,46 @@ stages:
   - build
   - test
   - deploy
+  - tag
 
 variables:
   IMAGE_TAG: latest
   IMAGE_NAME: booking-service
 
+# ---------- BUILD ----------
 build:
   stage: build
   script:
+    - export IMAGE_NAME=booking-service
+    - export IMAGE_TAG=latest
+    - podman build -t $IMAGE_NAME:$IMAGE_TAG ./booking-service
 
-
+# ---------- TEST ----------
 test:
   stage: test
   script:
+    - export IMAGE_NAME=booking-service
+    - export IMAGE_TAG=latest
+    - podman run -d -p 8080:8080 --name test-container $IMAGE_NAME:$IMAGE_TAG
+    - sleep 5
+    - curl --fail http://localhost:8080/ping
+    - podman rm -f test-container
 
-
+# ---------- DEPLOY ----------
 deploy:
   stage: deploy
   script:
- 
+    - export IMAGE_NAME=booking-service
+    - export IMAGE_TAG=latest
+    - rm -f booking-service.tar
+    - podman save -o booking-service.tar $IMAGE_NAME:$IMAGE_TAG
+    - minikube image load booking-service.tar
+    - helm upgrade --install booking-service ./helm/booking-service
+    - rm booking-service.tar
+
+# ---------- TAG ----------
+tag:
+  stage: tag
+  script:
+    - git tag "release-$(date +%s)"
+  #  - git push origin --tags

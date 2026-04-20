@@ -1,0 +1,5 @@
+CONTAINER ID  IMAGE                                      COMMAND        CREATED         STATUS         PORTS                   NAMES
+a1672f8f3c83  localhost/task3_booking-subgraph:latest    node index.js  21 minutes ago  Up 21 minutes  0.0.0.0:4001->4001/tcp  booking-subgraph
+e213b60ab007  localhost/task3_hotel-subgraph:latest      node index.js  21 minutes ago  Up 21 minutes  0.0.0.0:4002->4002/tcp  hotel-subgraph
+06b96f5029a0  localhost/task3_promocode-subgraph:latest  node index.js  21 minutes ago  Up 21 minutes  0.0.0.0:4003->4003/tcp  promocode-subgraph
+5ee16764ca4a  localhost/task3_apollo-gateway:latest      node index.js  21 minutes ago  Up 21 minutes  0.0.0.0:4000->4000/tcp  apollo-gateway

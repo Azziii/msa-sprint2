@@ -1,0 +1,12 @@
+grpc:
+  server:
+    port: 9090
+
+spring:
+  datasource:
+    url: jdbc:postgresql://booking-db:5432/booking
+    username: booking
+    password: booking
+  jpa:
+    hibernate:
+      ddl-auto: update

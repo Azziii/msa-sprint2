@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://booking-history-db:5432/history
+    username: history
+    password: history
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

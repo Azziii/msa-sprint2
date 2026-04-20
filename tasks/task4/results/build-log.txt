@@ -1,0 +1,82 @@
+gitlab-ci-local build --container-executable podman test deploy tag
+parsing and downloads finished in 79 ms.
+json schema validated in 407 ms
+build  starting shell (build)
+build  $ export IMAGE_NAME=booking-service
+build  $ export IMAGE_TAG=latest
+build  $ podman build -t $IMAGE_NAME:$IMAGE_TAG ./booking-service
+build  > STEP 1/8: FROM golang:1.21-alpine
+build  > STEP 2/8: RUN apk add --no-cache curl
+build  > --> Using cache 36132ad7e532f6a266317aa10b0781e28758b8aed5e05c237666e4109abf91d7
+build  > --> 36132ad7e532
+build  > STEP 3/8: WORKDIR /app
+build  > --> Using cache 15c963043624733d175a9ef709e8e12b267d721eaa7bc5eb4691b137aebd0841
+build  > --> 15c963043624
+build  > STEP 4/8: COPY main.go .
+build  > --> Using cache 3fe6b3deb7c0a2f0db4d973ac8262d80781b89da45bd6e76df5b2d8129605b59
+build  > --> 3fe6b3deb7c0
+build  > STEP 5/8: COPY check-dns.sh .
+build  > --> Using cache 5de4b31c6e2f7e10c67f5df503be3eda57baf11bdcb248e71aa5a4eac4d6e519
+build  > --> 5de4b31c6e2f
+build  > STEP 6/8: RUN chmod +x check-dns.sh
+build  > --> Using cache d1e588cd1e1a9f7e59be44090cace0d7d8c3178e5cbb6745af7f5d39db4848c4
+build  > --> d1e588cd1e1a
+build  > STEP 7/8: RUN go build -o booking-service main.go
+build  > --> Using cache 7a17a3865bd8c016de53208102445addbaa0d3cb31f90a352736f7b40366b3e5
+build  > --> 7a17a3865bd8
+build  > STEP 8/8: CMD ["./booking-service"]
+build  > --> Using cache 22171e84cf962d682c513e5f281867ae4bf412e55a23d0caeeb086049540266f
+build  > COMMIT booking-service:latest
+build  > --> 22171e84cf96
+build  > Successfully tagged localhost/booking-service:latest
+build  > 22171e84cf962d682c513e5f281867ae4bf412e55a23d0caeeb086049540266f
+build  finished in 829 ms
+test   starting shell (test)
+test   $ export IMAGE_NAME=booking-service
+test   $ export IMAGE_TAG=latest
+test   $ podman run -d -p 8080:8080 --name test-container $IMAGE_NAME:$IMAGE_TAG
+test   > e7bd2dc426cd12b639d8fc16b90a887a935774d8f986c44dfe14a57d69431c0a
+test   $ sleep 5
+test   $ curl --fail http://localhost:8080/ping
+test   >   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+test   >                                  Dload  Upload   Total   Spent    Left  Speed
+100     4  100     4    0     0   1333      0 --:--:-- --:--:-- --:--:--  2000
+test   > pong<gclShellPromptPlaceholder> podman rm -f test-container
+test   > test-container
+test   finished in 5.74 s
+deploy starting shell (deploy)
+deploy $ export IMAGE_NAME=booking-service
+deploy $ export IMAGE_TAG=latest
+deploy $ rm -f booking-service.tar
+deploy $ podman save -o booking-service.tar $IMAGE_NAME:$IMAGE_TAG
+deploy > Copying blob sha256:78561cef0761903dd2f7d09856150a6d4fb48967a8f113f3e33d79effbf59a07
+deploy > Copying blob sha256:88c516a45d9a30811dc536dcbdbcc1b0b37079f0ca40fcdcbe1a1ccee2075e85
+deploy > Copying blob sha256:b2b579346a71384801465cf5cbf972d90cd3ce73224e650b0a78c70752255ef4
+deploy > Copying blob sha256:2ccb0e4e62fdd4cd4c3576295cf4384bf8b5c30c7f83b9d286d47eda60dc1765
+deploy > Copying blob sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef
+deploy > Copying blob sha256:a2c11c2cd62fb8e4a22241ad8c1be84b6136c0e6d5572d6b2af8981ce8276d28
+deploy > Copying blob sha256:dfcd47b640dfdca5d82faac758712a0faa929c529c5d124c7da88a2c6d393b0b
+deploy > Copying blob sha256:cbe7d99a123ef0053ff7a7319c777ecdac1af3cc663f3982581acba8a4b8a8da
+deploy > Copying blob sha256:bf78fcbbf828ec80e99f5a81e678d6b060781683102f7124fa29cf80e507d3f3
+deploy > Copying blob sha256:0acd88a32924e2a80f1bb12c4c2b95fef8ed27df024047afdd77297d0e5911fa
+deploy > Copying config sha256:22171e84cf962d682c513e5f281867ae4bf412e55a23d0caeeb086049540266f
+deploy > Writing manifest to image destination
+deploy $ minikube image load booking-service.tar
+deploy $ helm upgrade --install booking-service ./helm/booking-service
+deploy > Release "booking-service" has been upgraded. Happy Helming!
+deploy > NAME: booking-service
+deploy > LAST DEPLOYED: Mon Apr 20 16:42:24 2026
+deploy > NAMESPACE: default
+deploy > STATUS: deployed
+deploy > REVISION: 4
+deploy > TEST SUITE: None
+deploy $ rm booking-service.tar
+deploy finished in 6 s
+tag    starting shell (tag)
+tag    $ git tag "release-$(date +%s)"
+tag    finished in 17 ms
+
+ PASS  build
+ PASS  test
+ PASS  deploy
+ PASS  tag
